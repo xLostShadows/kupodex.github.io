@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Terms of Service · Kupodex</title>
+  <meta name="description" content="The terms for using Kupodex, a Discord bot for Final Fantasy XIV communities.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #f3f6fb;
+      --surface: #ffffff;
+      --ink: #16243d;
+      --ink-soft: #4a5b78;
+      --rule: #d5deec;
+      --accent: #2f5a9e;
+      --pom: #d9445a;
+      --fill-bg: #fff1c2;
+      --fill-ink: #6b4e00;
+      --sans: "Poppins", "Segoe UI", system-ui, sans-serif;
+      --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        color-scheme: dark;
+        --page: #0d1a33;
+        --surface: #13244a;
+        --ink: #e4ebf7;
+        --ink-soft: #a7b5cf;
+        --rule: #26396a;
+        --accent: #a9c8f2;
+        --pom: #ff6b7f;
+        --fill-bg: #4a3a0c;
+        --fill-ink: #ffe28a;
+      }
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html { scroll-padding-top: 1.5rem; }
+
+    body {
+      margin: 0;
+      padding: env(safe-area-inset-top, 0px) env(safe-area-inset-right, 0px)
+        env(safe-area-inset-bottom, 0px) env(safe-area-inset-left, 0px);
+      background: var(--page);
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+    }
+
+    a { color: var(--accent); text-underline-offset: 0.15em; }
+    a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 2px; }
+
+    .layout {
+      max-width: 68rem;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 5rem;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    /* Lets wide content like the table scroll instead of widening the page */
+    .layout > * { min-width: 0; }
+
+    @media (min-width: 60rem) {
+      .layout {
+        grid-template-columns: 14rem minmax(0, 40rem);
+        justify-content: center;
+        gap: 4rem;
+      }
+    }
+
+    /* The wordmark: Kupodex with a moogle's pom-pom over the "o" */
+    .wordmark {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: var(--ink);
+      text-decoration: none;
+      display: inline-block;
+    }
+    .wordmark .pom {
+      position: relative;
+      display: inline-block;
+    }
+    .wordmark .pom::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -0.45em;
+      width: 0.42em;
+      height: 0.42em;
+      margin-left: -0.21em;
+      border-radius: 50%;
+      background: var(--pom);
+    }
+    .wordmark .pom::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: -0.08em;
+      width: 1.5px;
+      height: 0.18em;
+      margin-left: -0.75px;
+      background: var(--ink-soft);
+    }
+
+    /* Contents: a sticky sidebar on wide screens, a list on narrow ones */
+    nav.contents { font-family: var(--sans); font-size: 0.875rem; }
+    nav.contents h2 {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--ink-soft);
+      margin: 2rem 0 0.75rem;
+    }
+    nav.contents ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: toc;
+    }
+    nav.contents li { counter-increment: toc; margin: 0.35rem 0; }
+    nav.contents ol a {
+      color: var(--ink-soft);
+      text-decoration: none;
+      display: flex;
+      gap: 0.6rem;
+    }
+    nav.contents ol a::before {
+      content: counter(toc);
+      min-width: 1.4rem;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+    nav.contents ol a:hover { color: var(--ink); }
+
+    @media (min-width: 60rem) {
+      nav.contents .sticky { position: sticky; top: 2rem; }
+    }
+
+    header.title { margin-bottom: 2.5rem; }
+    header.title h1 {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin: 0 0 0.75rem;
+    }
+    header.title p { margin: 0; color: var(--ink-soft); }
+
+    section { padding-top: 0.5rem; }
+    section + section { border-top: 1px solid var(--rule); margin-top: 2.25rem; padding-top: 2.25rem; }
+
+    h2 {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 1.3rem;
+      line-height: 1.3;
+      margin: 0 0 1rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: baseline;
+    }
+    h2 .number {
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+      min-width: 1.6rem;
+    }
+
+    p { margin: 0 0 1rem; }
+    ul { margin: 0 0 1rem; padding-left: 1.25rem; }
+    li { margin: 0.4rem 0; }
+    li::marker { color: var(--accent); }
+    strong { font-weight: 600; }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 0 0 1rem;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+    table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: 0.95rem; }
+    th, td { text-align: left; vertical-align: top; padding: 0.7rem 0.9rem; }
+    th {
+      font-family: var(--sans);
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--ink-soft);
+      border-bottom: 1px solid var(--rule);
+    }
+    tr + tr td { border-top: 1px solid var(--rule); }
+
+    .notice {
+      font-size: 0.95rem;
+      color: var(--ink-soft);
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+    }
+
+    /* Details still to fill in before publishing */
+    .fill {
+      background: var(--fill-bg);
+      color: var(--fill-ink);
+      border-radius: 3px;
+      padding: 0 0.25em;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      color: var(--ink-soft);
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <nav class="contents" aria-label="Contents">
+      <div class="sticky">
+        <a class="wordmark" href="#top">Kup<span class="pom">o</span>dex</a>
+        <h2>Contents</h2>
+        <ol>
+          <li><a href="#agreement">Agreement</a></li>
+          <li><a href="#what-kupodex-does">What Kupodex does</a></li>
+          <li><a href="#eligibility">Eligibility</a></li>
+          <li><a href="#acceptable-use">Acceptable use</a></li>
+          <li><a href="#server-administrators">Server administrators</a></li>
+          <li><a href="#verification">Verification and Lodestone data</a></li>
+          <li><a href="#data">Data Kupodex stores</a></li>
+          <li><a href="#third-party-services">Third-party services</a></li>
+          <li><a href="#intellectual-property">Intellectual property</a></li>
+          <li><a href="#availability">Availability</a></li>
+          <li><a href="#termination">Ending use and termination</a></li>
+          <li><a href="#liability">Disclaimers and liability</a></li>
+          <li><a href="#changes">Changes to these terms</a></li>
+          <li><a href="#governing-law">Governing law</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </div>
+    </nav>
+
+    <main id="top">
+      <header class="title">
+        <h1>Terms of Service</h1>
+        <p>Last updated October 26, 2026</p>
+      </header>
+
+      <section id="agreement">
+        <h2><span class="number">1</span>Agreement</h2>
+        <p>By using Kupodex, you agree to these terms. Kupodex is a Discord bot for Final Fantasy XIV communities, run by <span class="fill">[operator name]</span> (“we”, “us”).</p>
+        <p>These terms apply when you add Kupodex to a server, use its commands, or click its buttons. They work together with the Kupodex Privacy Policy, which explains what data we keep and why. If you don’t agree, please don’t use Kupodex. Server administrators can remove it at any time.</p>
+      </section>
+
+      <section id="what-kupodex-does">
+        <h2><span class="number">2</span>What Kupodex does</h2>
+        <p>Kupodex brings Final Fantasy XIV character information into Discord. Its features include:</p>
+        <ul>
+          <li><strong>Character cards</strong> that show a character’s profile, jobs and progress from the Lodestone.</li>
+          <li><strong>Character verification</strong>, which links your Discord account to a character you own and can set your nickname and roles.</li>
+          <li><strong>Automatic role updates</strong> that recheck verified characters about once a day.</li>
+          <li><strong>Raid sign-ups and looking-for-group posts</strong>, with reminders and pings for people who join.</li>
+          <li><strong>Utility and fun commands</strong>, such as reset timers and a random job picker.</li>
+        </ul>
+        <p>Features may be added, changed or removed over time.</p>
+      </section>
+
+      <section id="eligibility">
+        <h2><span class="number">3</span>Eligibility</h2>
+        <p>You may use Kupodex only if you’re allowed to use Discord. That means meeting Discord’s minimum age in your country and following Discord’s <a href="https://discord.com/terms">Terms of Service</a> and <a href="https://discord.com/guidelines">Community Guidelines</a>. Using Kupodex in a server also means following that server’s own rules.</p>
+      </section>
+
+      <section id="acceptable-use">
+        <h2><span class="number">4</span>Acceptable use</h2>
+        <p>Use Kupodex honestly and in a way that doesn’t harm others or the service. You agree not to:</p>
+        <ul>
+          <li>Verify a character you don’t own or control, or help someone else do so.</li>
+          <li>Use Kupodex to harass, impersonate or mislead other people.</li>
+          <li>Spam commands or buttons, or try to overload Kupodex, Discord or the Lodestone.</li>
+          <li>Use mentions, raid posts or LFG posts to ping people who didn’t sign up for them.</li>
+          <li>Try to get around permission checks, role safeguards or other limits.</li>
+          <li>Probe, attack or reverse-engineer the service to find or exploit weaknesses.</li>
+        </ul>
+        <p>We may limit or block access for anyone who breaks these rules (see <a href="#termination">section 11</a>).</p>
+      </section>
+
+      <section id="server-administrators">
+        <h2><span class="number">5</span>Server administrators</h2>
+        <p>If you add Kupodex to a server or change its settings, you’re responsible for how it’s set up there. In particular:</p>
+        <ul>
+          <li><strong>Roles and permissions.</strong> You choose which roles Kupodex gives out, including verified, Free Company and expansion roles. Kupodex refuses roles with moderator permissions, but you’re responsible for what the roles you pick allow in your server.</li>
+          <li><strong>Nicknames.</strong> Verification changes members’ nicknames to their character names, and daily checks keep them current. Let your members know this happens.</li>
+          <li><strong>Your members.</strong> Make sure your members know Kupodex is in the server and where to find these terms and the Privacy Policy.</li>
+          <li><strong>Removal.</strong> Removing Kupodex stops all of its activity in your server. Roles and nicknames it already set stay until someone changes them.</li>
+        </ul>
+      </section>
+
+      <section id="verification">
+        <h2><span class="number">6</span>Character verification and Lodestone data</h2>
+        <p>Kupodex reads only public information from the Lodestone and never asks for your Square Enix account or password.</p>
+        <p>To verify, you add a short code to your character’s Lodestone profile. Kupodex checks for the code, links the character to your Discord account in that server, and may set your nickname and roles. Codes expire after 30 minutes, and you can remove the code from your profile once you’re verified.</p>
+        <p>After you verify, Kupodex rechecks your character’s public Lodestone page about once a day. It updates your roles and nickname to match changes such as a new Free Company, a world transfer, a name change or finished expansion stories. Some features need your achievements to be public on the Lodestone.</p>
+        <p>Information shown by Kupodex comes from the Lodestone and other public sources. It may be delayed, incomplete or occasionally wrong.</p>
+      </section>
+
+      <section id="data">
+        <h2><span class="number">7</span>Data Kupodex stores</h2>
+        <p>Kupodex keeps only what its features need to work. The Privacy Policy explains this in full. In short:</p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th scope="col">What</th><th scope="col">Why</th><th scope="col">How long</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Your Discord user ID, server ID, linked character ID and name, the roles Kupodex gave you, and when you verified</td>
+                <td>To keep your roles and nickname up to date</td>
+                <td>Until you leave the server or ask us to remove it</td>
+              </tr>
+              <tr>
+                <td>Server settings chosen by administrators</td>
+                <td>To run Kupodex the way each server wants</td>
+                <td>Until changed or Kupodex is removed</td>
+              </tr>
+              <tr>
+                <td>Raid and LFG sign-ups (user IDs and roles)</td>
+                <td>To show sign-ups and send reminders</td>
+                <td>Raids: a day after they start. LFG: until the post closes</td>
+              </tr>
+              <tr>
+                <td>Verification codes</td>
+                <td>To check that you own the character</td>
+                <td>Up to 30 minutes, in memory only</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Kupodex doesn’t sell your data, use it for advertising, or read your messages.</p>
+      </section>
+
+      <section id="third-party-services">
+        <h2><span class="number">8</span>Third-party services</h2>
+        <p>Kupodex depends on services we don’t control, and their own terms apply when you use them:</p>
+        <ul>
+          <li><strong>Discord</strong>, where Kupodex runs.</li>
+          <li><strong>The Lodestone</strong> by Square Enix, where Kupodex reads public character and Free Company pages.</li>
+          <li><strong>FFXIV Collect</strong>, used only for game-wide mount and minion totals. No information about you is sent to it.</li>
+          <li><strong>Our hosting provider</strong>, where Kupodex and its stored data run.</li>
+        </ul>
+        <p>We aren’t responsible for these services’ availability, accuracy or practices. If one of them changes or goes down, some Kupodex features may stop working.</p>
+      </section>
+
+      <section id="intellectual-property">
+        <h2><span class="number">9</span>Intellectual property</h2>
+        <p>Kupodex is an unofficial fan project and isn’t affiliated with or endorsed by Square Enix.</p>
+        <p class="notice">FINAL FANTASY is a registered trademark of Square Enix Holdings Co., Ltd. FINAL FANTASY XIV © SQUARE ENIX CO., LTD. All rights reserved. Character portraits, job icons, achievement names and other game material shown by Kupodex belong to Square Enix and are shown for non-commercial community use.</p>
+        <p>Kupodex’s own code and design belong to <span class="fill">[operator name]</span>. Your character, your Discord content and anything you type into Kupodex remain yours.</p>
+      </section>
+
+      <section id="availability">
+        <h2><span class="number">10</span>Availability</h2>
+        <p>Kupodex is provided free of charge and as-is, with no promise that it will always be online. It may be unavailable during updates, Lodestone maintenance or outages, and we may change, pause or end any feature, or Kupodex as a whole, at any time.</p>
+      </section>
+
+      <section id="termination">
+        <h2><span class="number">11</span>Ending your use and termination</h2>
+        <p>You can stop using Kupodex at any time. Leaving a server removes your verification link for that server at its next daily check. To have your data removed sooner, <a href="#contact">contact us</a>.</p>
+        <p>We may suspend or block access to Kupodex for any user or server that breaks these terms or misuses the service. Where it’s reasonable, we’ll explain why.</p>
+      </section>
+
+      <section id="liability">
+        <h2><span class="number">12</span>Disclaimers and limitation of liability</h2>
+        <p>Kupodex is provided “as is” and “as available”, without warranties of any kind, to the fullest extent the law allows. We don’t guarantee that it will be accurate, uninterrupted or free of errors.</p>
+        <p>To the fullest extent the law allows, we aren’t liable for indirect or consequential losses from using Kupodex. That includes lost roles or nicknames, missed raids, server disruption, or data lost through outages. Nothing in these terms limits rights you have under laws that can’t be waived.</p>
+      </section>
+
+      <section id="changes">
+        <h2><span class="number">13</span>Changes to these terms</h2>
+        <p>We may update these terms as Kupodex changes. The date at the top shows the latest version. For significant changes, we’ll give notice in the Kupodex support server or another reasonable place before they take effect. Continuing to use Kupodex after that means you accept the updated terms.</p>
+      </section>
+
+      <section id="governing-law">
+        <h2><span class="number">14</span>Governing law</h2>
+        <p>These terms are governed by the laws of <span class="fill">[province or state, country]</span>, without regard to conflict-of-law rules. If any part of these terms can’t be enforced, the rest still applies.</p>
+      </section>
+
+      <section id="contact">
+        <h2><span class="number">15</span>Contact</h2>
+        <p>For questions about these terms, or to ask for your data to be removed, contact us at:</p>
+        <ul>
+          <li><strong>Email:</strong> <span class="fill">[contact email]</span></li>
+          <li><strong>Support server:</strong> <span class="fill">[Discord invite link]</span></li>
+        </ul>
+      </section>
+
+      <footer>
+        <p>Kupodex is an unofficial Final Fantasy XIV fan project.</p>
+      </footer>
+    </main>
+  </div>
+</body>
+</html>
